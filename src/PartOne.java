@@ -11,7 +11,8 @@ public class PartOne {
 	public static void main(String[] args) throws IOException {
 		readLabelledData("spamLabelled.dat");
 		printData();
-		calcProbabilities();
+		createProbabilityTable();
+		nativeBayes();
 	}
 
 	public static void readLabelledData(String fileName) throws IOException {
@@ -51,7 +52,7 @@ public class PartOne {
 		}
 	}
 	
-	public static void calcProbabilities(){
+	public static void createProbabilityTable(){
 		int totalSpam = 1; //Small constant to account for zero counts
 		int totalNotSpam = 1;
 		int totalA1 = 1;
@@ -170,10 +171,10 @@ public class PartOne {
 		int notSpamGivenA5 = totalA5/totalNotSpam;
 		int spamGivenNotA5 = totalNotA5/totalSpam;
 		int notSpamGivenNotA5 = totalNotA5/totalNotSpam;
-		probabilityTable[9][0] = spamGivenA5; //P(Attribute 4 | Class) = Spam
-		probabilityTable[9][1] = notSpamGivenA5; //P(Attribute 4 | Class) = Not Spam
-		probabilityTable[10][0] = spamGivenNotA5; //P(Not Attribute 4 | Class) = Spam
-		probabilityTable[10][1] = notSpamGivenNotA5; //P(Not Attribute 4 | Class) = Not Spam
+		probabilityTable[9][0] = spamGivenA5; //P(Attribute 5 | Class) = Spam
+		probabilityTable[9][1] = notSpamGivenA5; //P(Attribute 5 | Class) = Not Spam
+		probabilityTable[10][0] = spamGivenNotA5; //P(Not Attribute 5 | Class) = Spam
+		probabilityTable[10][1] = notSpamGivenNotA5; //P(Not Attribute 5 | Class) = Not Spam
 
 		for(int x = 0;x<labelled.length;x++){
 			if(labelled[x][6]==1){
@@ -187,10 +188,116 @@ public class PartOne {
 		int notSpamGivenA6 = totalA6/totalNotSpam;
 		int spamGivenNotA6 = totalNotA6/totalSpam;
 		int notSpamGivenNotA6 = totalNotA6/totalNotSpam;
-		probabilityTable[11][0] = spamGivenA6; //P(Attribute 4 | Class) = Spam
-		probabilityTable[11][1] = notSpamGivenA6; //P(Attribute 4 | Class) = Not Spam
-		probabilityTable[12][0] = spamGivenNotA6; //P(Not Attribute 4 | Class) = Spam
-		probabilityTable[12][1] = notSpamGivenNotA6; //P(Not Attribute 4 | Class) = Not Spam
+		probabilityTable[11][0] = spamGivenA6; //P(Attribute 6 | Class) = Spam
+		probabilityTable[11][1] = notSpamGivenA6; //P(Attribute 6 | Class) = Not Spam
+		probabilityTable[12][0] = spamGivenNotA6; //P(Not Attribute 6 | Class) = Spam
+		probabilityTable[12][1] = notSpamGivenNotA6; //P(Not Attribute 6 | Class) = Not Spam
+
+		for(int x = 0;x<labelled.length;x++){
+			if(labelled[x][7]==1){
+				totalA7++;
+			}
+			else if(labelled[x][7]==0){
+				totalNotA7++;
+			}
+		}
+		int spamGivenA7 = totalA7/totalSpam;
+		int notSpamGivenA7 = totalA7/totalNotSpam;
+		int spamGivenNotA7 = totalNotA7/totalSpam;
+		int notSpamGivenNotA7 = totalNotA7/totalNotSpam;
+		probabilityTable[13][0] = spamGivenA7; //P(Attribute 7 | Class) = Spam
+		probabilityTable[13][1] = notSpamGivenA7; //P(Attribute 7 | Class) = Not Spam
+		probabilityTable[14][0] = spamGivenNotA7; //P(Not Attribute 7 | Class) = Spam
+		probabilityTable[14][1] = notSpamGivenNotA7; //P(Not Attribute 7 | Class) = Not Spam
+
+		for(int x = 0;x<labelled.length;x++){
+			if(labelled[x][8]==1){
+				totalA8++;
+			}
+			else if(labelled[x][8]==0){
+				totalNotA8++;
+			}
+		}
+		int spamGivenA8 = totalA8/totalSpam;
+		int notSpamGivenA8 = totalA8/totalNotSpam;
+		int spamGivenNotA8 = totalNotA8/totalSpam;
+		int notSpamGivenNotA8 = totalNotA8/totalNotSpam;
+		probabilityTable[15][0] = spamGivenA8; //P(Attribute 8 | Class) = Spam
+		probabilityTable[15][1] = notSpamGivenA8; //P(Attribute 8 | Class) = Not Spam
+		probabilityTable[16][0] = spamGivenNotA8; //P(Not Attribute 8 | Class) = Spam
+		probabilityTable[16][1] = notSpamGivenNotA8; //P(Not Attribute 8 | Class) = Not Spam
+
+		for(int x = 0;x<labelled.length;x++){
+			if(labelled[x][9]==1){
+				totalA9++;
+			}
+			else if(labelled[x][9]==0){
+				totalNotA9++;
+			}
+		}
+		int spamGivenA9 = totalA9/totalSpam;
+		int notSpamGivenA9 = totalA9/totalNotSpam;
+		int spamGivenNotA9 = totalNotA9/totalSpam;
+		int notSpamGivenNotA9 = totalNotA9/totalNotSpam;
+		probabilityTable[17][0] = spamGivenA9; //P(Attribute 9 | Class) = Spam
+		probabilityTable[17][1] = notSpamGivenA9; //P(Attribute 9 | Class) = Not Spam
+		probabilityTable[18][0] = spamGivenNotA9; //P(Not Attribute 9 | Class) = Spam
+		probabilityTable[18][1] = notSpamGivenNotA9; //P(Not Attribute 9 | Class) = Not Spam
+		
+		for(int x = 0;x<labelled.length;x++){
+			if(labelled[x][10]==1){
+				totalA10++;
+			}
+			else if(labelled[x][10]==0){
+				totalNotA10++;
+			}
+		}
+		int spamGivenA10 = totalA10/totalSpam;
+		int notSpamGivenA10 = totalA10/totalNotSpam;
+		int spamGivenNotA10 = totalNotA10/totalSpam;
+		int notSpamGivenNotA10 = totalNotA10/totalNotSpam;
+		probabilityTable[19][0] = spamGivenA10; //P(Attribute 10 | Class) = Spam
+		probabilityTable[19][1] = notSpamGivenA10; //P(Attribute 10 | Class) = Not Spam
+		probabilityTable[20][0] = spamGivenNotA10; //P(Not Attribute 10 | Class) = Spam
+		probabilityTable[20][1] = notSpamGivenNotA10; //P(Not Attribute 10 | Class) = Not Spam
+		
+		for(int x = 0;x<labelled.length;x++){
+			if(labelled[x][11]==1){
+				totalA11++;
+			}
+			else if(labelled[x][11]==0){
+				totalNotA11++;
+			}
+		}
+		int spamGivenA11 = totalA11/totalSpam;
+		int notSpamGivenA11 = totalA11/totalNotSpam;
+		int spamGivenNotA11 = totalNotA11/totalSpam;
+		int notSpamGivenNotA11 = totalNotA11/totalNotSpam;
+		probabilityTable[21][0] = spamGivenA11; //P(Attribute 11 | Class) = Spam
+		probabilityTable[21][1] = notSpamGivenA11; //P(Attribute 11 | Class) = Not Spam
+		probabilityTable[22][0] = spamGivenNotA11; //P(Not Attribute 11 | Class) = Spam
+		probabilityTable[22][1] = notSpamGivenNotA11; //P(Not Attribute 11 | Class) = Not Spam
+
+		for(int x = 0;x<labelled.length;x++){
+			if(labelled[x][12]==1){
+				totalA12++;
+			}
+			else if(labelled[x][12]==0){
+				totalNotA12++;
+			}
+		}
+		int spamGivenA12 = totalA12/totalSpam;
+		int notSpamGivenA12 = totalA12/totalNotSpam;
+		int spamGivenNotA12 = totalNotA12/totalSpam;
+		int notSpamGivenNotA12 = totalNotA12/totalNotSpam;
+		probabilityTable[23][0] = spamGivenA12; //P(Attribute 12 | Class) = Spam
+		probabilityTable[23][1] = notSpamGivenA12; //P(Attribute 12 | Class) = Not Spam
+		probabilityTable[24][0] = spamGivenNotA12; //P(Not Attribute 12 | Class) = Spam
+		probabilityTable[24][1] = notSpamGivenNotA12; //P(Not Attribute 12 | Class) = Not Spam
+	}
+	
+	public static void nativeBayes(){
+		
 	}
 
 }
