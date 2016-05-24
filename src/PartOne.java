@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class PartOne {
 	static int[][] labelled = new int[200][13];
-	static int[][] probabilityTable = new int [13][2];
+	static double[][] probabilityTable = new double [25][2];
 	int[][] unlabelled = new int[25][10];
 
 	public static void main(String[] args) throws IOException {
@@ -53,32 +53,32 @@ public class PartOne {
 	}
 	
 	public static void createProbabilityTable(){
-		int totalSpam = 1; //Small constant to account for zero counts
-		int totalNotSpam = 1;
-		int totalA1 = 1;
-		int totalNotA1 = 1;
-		int totalA2 = 1;
-		int totalNotA2 = 1;
-		int totalA3 = 1;
-		int totalNotA3 = 1;
-		int totalA4 = 1;
-		int totalNotA4 = 1;
-		int totalA5 = 1;
-		int totalNotA5 = 1;
-		int totalA6 = 1;
-		int totalNotA6 = 1;
-		int totalA7 = 1;
-		int totalNotA7 = 1;
-		int totalA8 = 1;
-		int totalNotA8 = 1;
-		int totalA9 = 1;
-		int totalNotA9 = 1;
-		int totalA10 = 1;
-		int totalNotA10 = 1;
-		int totalA11 = 1;
-		int totalNotA11 = 1;
-		int totalA12 = 1;
-		int totalNotA12 = 1;
+		double totalSpam = 1; //Small constant to account for zero counts
+		double totalNotSpam = 1;
+		double totalA1 = 1;
+		double totalNotA1 = 1;
+		double totalA2 = 1;
+		double totalNotA2 = 1;
+		double totalA3 = 1;
+		double totalNotA3 = 1;
+		double totalA4 = 1;
+		double totalNotA4 = 1;
+		double totalA5 = 1;
+		double totalNotA5 = 1;
+		double totalA6 = 1;
+		double totalNotA6 = 1;
+		double totalA7 = 1;
+		double totalNotA7 = 1;
+		double totalA8 = 1;
+		double totalNotA8 = 1;
+		double totalA9 = 1;
+		double totalNotA9 = 1;
+		double totalA10 = 1;
+		double totalNotA10 = 1;
+		double totalA11 = 1;
+		double totalNotA11 = 1;
+		double totalA12 = 1;
+		double totalNotA12 = 1;
 		
 		for(int x = 0;x<labelled.length;x++){
 			if(labelled[x][12]==1){
@@ -100,10 +100,10 @@ public class PartOne {
 				totalNotA1++;
 			}
 		}
-		int spamGivenA1 = totalA1/totalSpam;
-		int notSpamGivenA1 = totalA1/totalNotSpam;
-		int spamGivenNotA1 = totalNotA1/totalSpam;
-		int notSpamGivenNotA1 = totalNotA1/totalNotSpam;
+		double spamGivenA1 = totalA1/totalSpam;
+		double notSpamGivenA1 = totalA1/totalNotSpam;
+		double spamGivenNotA1 = totalNotA1/totalSpam;
+		double notSpamGivenNotA1 = totalNotA1/totalNotSpam;
 		probabilityTable[1][0] = spamGivenA1; //P(Attribute 1 | Class) = Spam
 		probabilityTable[1][1] = notSpamGivenA1; //P(Attribute 1 | Class) = Not Spam
 		probabilityTable[2][0] = spamGivenNotA1; //P(Not Attribute 1 | Class) = Spam
@@ -116,10 +116,10 @@ public class PartOne {
 				totalNotA2++;
 			}
 		}
-		int spamGivenA2 = totalA2/totalSpam;
-		int notSpamGivenA2 = totalA2/totalNotSpam;
-		int spamGivenNotA2 = totalNotA2/totalSpam;
-		int notSpamGivenNotA2 = totalNotA2/totalNotSpam;
+		double spamGivenA2 = totalA2/totalSpam;
+		double notSpamGivenA2 = totalA2/totalNotSpam;
+		double spamGivenNotA2 = totalNotA2/totalSpam;
+		double notSpamGivenNotA2 = totalNotA2/totalNotSpam;
 		probabilityTable[3][0] = spamGivenA2; //P(Attribute 2 | Class) = Spam
 		probabilityTable[3][1] = notSpamGivenA2; //P(Attribute 2 | Class) = Not Spam
 		probabilityTable[4][0] = spamGivenNotA2; //P(Not Attribute 2 | Class) = Spam
@@ -133,10 +133,10 @@ public class PartOne {
 				totalNotA3++;
 			}
 		}
-		int spamGivenA3 = totalA3/totalSpam;
-		int notSpamGivenA3 = totalA3/totalNotSpam;
-		int spamGivenNotA3 = totalNotA3/totalSpam;
-		int notSpamGivenNotA3 = totalNotA3/totalNotSpam;
+		double spamGivenA3 = totalA3/totalSpam;
+		double notSpamGivenA3 = totalA3/totalNotSpam;
+		double spamGivenNotA3 = totalNotA3/totalSpam;
+		double notSpamGivenNotA3 = totalNotA3/totalNotSpam;
 		probabilityTable[5][0] = spamGivenA3; //P(Attribute 3 | Class) = Spam
 		probabilityTable[5][1] = notSpamGivenA3; //P(Attribute 3 | Class) = Not Spam
 		probabilityTable[6][0] = spamGivenNotA3; //P(Not Attribute 3 | Class) = Spam
@@ -150,10 +150,10 @@ public class PartOne {
 				totalNotA4++;
 			}
 		}
-		int spamGivenA4 = totalA4/totalSpam;
-		int notSpamGivenA4 = totalA4/totalNotSpam;
-		int spamGivenNotA4 = totalNotA4/totalSpam;
-		int notSpamGivenNotA4 = totalNotA4/totalNotSpam;
+		double spamGivenA4 = totalA4/totalSpam;
+		double notSpamGivenA4 = totalA4/totalNotSpam;
+		double spamGivenNotA4 = totalNotA4/totalSpam;
+		double notSpamGivenNotA4 = totalNotA4/totalNotSpam;
 		probabilityTable[7][0] = spamGivenA4; //P(Attribute 4 | Class) = Spam
 		probabilityTable[7][1] = notSpamGivenA4; //P(Attribute 4 | Class) = Not Spam
 		probabilityTable[8][0] = spamGivenNotA4; //P(Not Attribute 4 | Class) = Spam
@@ -167,10 +167,10 @@ public class PartOne {
 				totalNotA5++;
 			}
 		}
-		int spamGivenA5 = totalA5/totalSpam;
-		int notSpamGivenA5 = totalA5/totalNotSpam;
-		int spamGivenNotA5 = totalNotA5/totalSpam;
-		int notSpamGivenNotA5 = totalNotA5/totalNotSpam;
+		double spamGivenA5 = totalA5/totalSpam;
+		double notSpamGivenA5 = totalA5/totalNotSpam;
+		double spamGivenNotA5 = totalNotA5/totalSpam;
+		double notSpamGivenNotA5 = totalNotA5/totalNotSpam;
 		probabilityTable[9][0] = spamGivenA5; //P(Attribute 5 | Class) = Spam
 		probabilityTable[9][1] = notSpamGivenA5; //P(Attribute 5 | Class) = Not Spam
 		probabilityTable[10][0] = spamGivenNotA5; //P(Not Attribute 5 | Class) = Spam
@@ -184,10 +184,10 @@ public class PartOne {
 				totalNotA6++;
 			}
 		}
-		int spamGivenA6 = totalA6/totalSpam;
-		int notSpamGivenA6 = totalA6/totalNotSpam;
-		int spamGivenNotA6 = totalNotA6/totalSpam;
-		int notSpamGivenNotA6 = totalNotA6/totalNotSpam;
+		double spamGivenA6 = totalA6/totalSpam;
+		double notSpamGivenA6 = totalA6/totalNotSpam;
+		double spamGivenNotA6 = totalNotA6/totalSpam;
+		double notSpamGivenNotA6 = totalNotA6/totalNotSpam;
 		probabilityTable[11][0] = spamGivenA6; //P(Attribute 6 | Class) = Spam
 		probabilityTable[11][1] = notSpamGivenA6; //P(Attribute 6 | Class) = Not Spam
 		probabilityTable[12][0] = spamGivenNotA6; //P(Not Attribute 6 | Class) = Spam
@@ -201,10 +201,10 @@ public class PartOne {
 				totalNotA7++;
 			}
 		}
-		int spamGivenA7 = totalA7/totalSpam;
-		int notSpamGivenA7 = totalA7/totalNotSpam;
-		int spamGivenNotA7 = totalNotA7/totalSpam;
-		int notSpamGivenNotA7 = totalNotA7/totalNotSpam;
+		double spamGivenA7 = totalA7/totalSpam;
+		double notSpamGivenA7 = totalA7/totalNotSpam;
+		double spamGivenNotA7 = totalNotA7/totalSpam;
+		double notSpamGivenNotA7 = totalNotA7/totalNotSpam;
 		probabilityTable[13][0] = spamGivenA7; //P(Attribute 7 | Class) = Spam
 		probabilityTable[13][1] = notSpamGivenA7; //P(Attribute 7 | Class) = Not Spam
 		probabilityTable[14][0] = spamGivenNotA7; //P(Not Attribute 7 | Class) = Spam
@@ -218,10 +218,10 @@ public class PartOne {
 				totalNotA8++;
 			}
 		}
-		int spamGivenA8 = totalA8/totalSpam;
-		int notSpamGivenA8 = totalA8/totalNotSpam;
-		int spamGivenNotA8 = totalNotA8/totalSpam;
-		int notSpamGivenNotA8 = totalNotA8/totalNotSpam;
+		double spamGivenA8 = totalA8/totalSpam;
+		double notSpamGivenA8 = totalA8/totalNotSpam;
+		double spamGivenNotA8 = totalNotA8/totalSpam;
+		double notSpamGivenNotA8 = totalNotA8/totalNotSpam;
 		probabilityTable[15][0] = spamGivenA8; //P(Attribute 8 | Class) = Spam
 		probabilityTable[15][1] = notSpamGivenA8; //P(Attribute 8 | Class) = Not Spam
 		probabilityTable[16][0] = spamGivenNotA8; //P(Not Attribute 8 | Class) = Spam
@@ -235,10 +235,10 @@ public class PartOne {
 				totalNotA9++;
 			}
 		}
-		int spamGivenA9 = totalA9/totalSpam;
-		int notSpamGivenA9 = totalA9/totalNotSpam;
-		int spamGivenNotA9 = totalNotA9/totalSpam;
-		int notSpamGivenNotA9 = totalNotA9/totalNotSpam;
+		double spamGivenA9 = totalA9/totalSpam;
+		double notSpamGivenA9 = totalA9/totalNotSpam;
+		double spamGivenNotA9 = totalNotA9/totalSpam;
+		double notSpamGivenNotA9 = totalNotA9/totalNotSpam;
 		probabilityTable[17][0] = spamGivenA9; //P(Attribute 9 | Class) = Spam
 		probabilityTable[17][1] = notSpamGivenA9; //P(Attribute 9 | Class) = Not Spam
 		probabilityTable[18][0] = spamGivenNotA9; //P(Not Attribute 9 | Class) = Spam
@@ -252,10 +252,10 @@ public class PartOne {
 				totalNotA10++;
 			}
 		}
-		int spamGivenA10 = totalA10/totalSpam;
-		int notSpamGivenA10 = totalA10/totalNotSpam;
-		int spamGivenNotA10 = totalNotA10/totalSpam;
-		int notSpamGivenNotA10 = totalNotA10/totalNotSpam;
+		double spamGivenA10 = totalA10/totalSpam;
+		double notSpamGivenA10 = totalA10/totalNotSpam;
+		double spamGivenNotA10 = totalNotA10/totalSpam;
+		double notSpamGivenNotA10 = totalNotA10/totalNotSpam;
 		probabilityTable[19][0] = spamGivenA10; //P(Attribute 10 | Class) = Spam
 		probabilityTable[19][1] = notSpamGivenA10; //P(Attribute 10 | Class) = Not Spam
 		probabilityTable[20][0] = spamGivenNotA10; //P(Not Attribute 10 | Class) = Spam
@@ -269,10 +269,10 @@ public class PartOne {
 				totalNotA11++;
 			}
 		}
-		int spamGivenA11 = totalA11/totalSpam;
-		int notSpamGivenA11 = totalA11/totalNotSpam;
-		int spamGivenNotA11 = totalNotA11/totalSpam;
-		int notSpamGivenNotA11 = totalNotA11/totalNotSpam;
+		double spamGivenA11 = totalA11/totalSpam;
+		double notSpamGivenA11 = totalA11/totalNotSpam;
+		double spamGivenNotA11 = totalNotA11/totalSpam;
+		double notSpamGivenNotA11 = totalNotA11/totalNotSpam;
 		probabilityTable[21][0] = spamGivenA11; //P(Attribute 11 | Class) = Spam
 		probabilityTable[21][1] = notSpamGivenA11; //P(Attribute 11 | Class) = Not Spam
 		probabilityTable[22][0] = spamGivenNotA11; //P(Not Attribute 11 | Class) = Spam
@@ -286,10 +286,10 @@ public class PartOne {
 				totalNotA12++;
 			}
 		}
-		int spamGivenA12 = totalA12/totalSpam;
-		int notSpamGivenA12 = totalA12/totalNotSpam;
-		int spamGivenNotA12 = totalNotA12/totalSpam;
-		int notSpamGivenNotA12 = totalNotA12/totalNotSpam;
+		double spamGivenA12 = totalA12/totalSpam;
+		double notSpamGivenA12 = totalA12/totalNotSpam;
+		double spamGivenNotA12 = totalNotA12/totalSpam;
+		double notSpamGivenNotA12 = totalNotA12/totalNotSpam;
 		probabilityTable[23][0] = spamGivenA12; //P(Attribute 12 | Class) = Spam
 		probabilityTable[23][1] = notSpamGivenA12; //P(Attribute 12 | Class) = Not Spam
 		probabilityTable[24][0] = spamGivenNotA12; //P(Not Attribute 12 | Class) = Spam
